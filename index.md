@@ -1,7 +1,8 @@
 # Welcome my personel github page
-## You can find information here about my projects and my developments
+#### You can find information here about my projects and my developments
 
-### My Manjaro Installation Guide and the tricks I use
+## My Manjaro Installation Guide and the tricks I use
+
 [Manjaro **KDE** Installiation Guide (especially for Dell 7559)(* Up-to-date *)](https://github.com/oguzkaganeren/dell7559-Manjaro-KDE/blob/master/README.md)
 
 [Manjaro **GNOME** Installiation Guide (especially for Dell 7559)](https://github.com/oguzkaganeren/manjaroGnomeDell7559.github.io/blob/master/index.md)
@@ -10,28 +11,28 @@
 
 [Manjaro **Deepin** Installiation Guide (especially for Dell 7559)](https://github.com/oguzkaganeren/dell-7559-manjaro-deepin/blob/master/README.md)
 
-### My First Android Application(Developed with Java)
+## My First Android Application(Developed with Java)
 
 
 [D.E.U Bilgisayar Topluluğu Android App(It is now read-only.)](https://github.com/oguzkaganeren/deu-bilgisayar-toplulugu-android/blob/master/README.md)
 
-### My CV
+## My CV
 
 [What did I do until?](https://oguzkaganeren.github.io/my-cv/)
 
-### Four bit Computer Design with Altera
+## Four bit Computer Design with Altera
 
 [Completely labor work](https://github.com/oguzkaganeren/Computer-Architecture-My-Computer/blob/master/README.md)
 
-### First hackathon at Istanbul(Android App)
+## First hackathon at Istanbul(Android App)
 
 [We developed it about 24 hours](https://github.com/oguzkaganeren/happiness-time-app/blob/master/README.md)
 
-### Example an Airport Database
+## Example an Airport Database
 
 [SQL Example](https://github.com/oguzkaganeren/sql-airport-database-example/blob/master/README.md)
 
-### Developed a Web Token System with Nodejs and PostgreSQL
+## Developed a Web Token System with Nodejs and PostgreSQL
 
 [Nowadays, it is liked so much](https://github.com/oguzkaganeren/Node-JSON-Web-Token-PostgreSQL/blob/master/README.md)
 
