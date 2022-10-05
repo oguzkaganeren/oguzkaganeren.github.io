@@ -3,23 +3,19 @@ import React from "react";
 import {
   Box,
   Button,
-  CloseButton,
+  Heading,
   Flex,
-  HStack,
-  Icon,
+  LinkBox,
+  LinkOverlay,
   Wrap,
   WrapItem,
   VStack,
   chakra,
   SimpleGrid,
-  useColorModeValue,
-  useDisclosure,
-  Avatar,
+  Text,
+  Tag,
+  HStack,
 } from "@chakra-ui/react";
-import { useViewportScroll } from "framer-motion";
-import { FaHeart, FaMoon, FaSun } from "react-icons/fa";
-import { AiFillGithub, AiOutlineMenu } from "react-icons/ai";
-import personal from "./../data/personal.json";
 import Link from "next/link";
 const Intro: NextPage = () => {
   return (
@@ -116,7 +112,7 @@ const Intro: NextPage = () => {
             >
               Tech Stack
             </chakra.h3>
-            <Wrap spacing={4}>
+            <Wrap spacing={4} mb={6}>
               <WrapItem>
                 <Link href={"https://www.java.com/"}>
                   <Button colorScheme="teal" variant="outline">
@@ -167,6 +163,68 @@ const Intro: NextPage = () => {
                 </Link>
               </WrapItem>
             </Wrap>
+            <chakra.h3
+              mb={3}
+              fontSize={{
+                base: "3xl",
+                md: "4xl",
+              }}
+              fontWeight="extrabold"
+              textAlign={{
+                base: "center",
+                sm: "left",
+              }}
+              _light={{
+                color: "black",
+              }}
+              lineHeight="shorter"
+              letterSpacing="tight"
+            >
+              Project I am actively working on
+            </chakra.h3>
+            <HStack>
+              <LinkBox
+                as="article"
+                maxW="sm"
+                p="5"
+                borderWidth="1px"
+                rounded="md"
+              >
+                <Wrap>
+                  <Tag>react</Tag>
+                  <Tag>tauri</Tag>
+                </Wrap>
+
+                <Heading size="md" my="2">
+                  <LinkOverlay href="https://github.com/oguzkaganeren/manjaro-starter">
+                    Manjaro Starter
+                  </LinkOverlay>
+                </Heading>
+                <Text>
+                  A tool providing access to documentation and support for new
+                  Manjaro users.
+                </Text>
+              </LinkBox>
+
+              <LinkBox
+                as="article"
+                maxW="sm"
+                p="5"
+                borderWidth="1px"
+                rounded="md"
+              >
+                <Wrap>
+                  <Tag>react-native</Tag>
+                </Wrap>
+
+                <Heading size="md" my="2">
+                  <LinkOverlay href="https://play.google.com/store/apps/details?id=com.manjaro.manjarohome">
+                    Manjaro News
+                  </LinkOverlay>
+                </Heading>
+                <Text>A application providing get to news about manjaro.</Text>
+              </LinkBox>
+            </HStack>
           </Box>
           <VStack
             direction="column"
