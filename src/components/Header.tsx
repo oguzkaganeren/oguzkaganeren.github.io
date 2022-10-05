@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
 import React from "react";
 import {
   Box,
@@ -14,17 +14,14 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
-  Avatar
+  Avatar,
 } from "@chakra-ui/react";
 import { useViewportScroll } from "framer-motion";
 import { FaHeart, FaMoon, FaSun } from "react-icons/fa";
-import {
-  AiFillGithub,
-  AiOutlineMenu,
-} from "react-icons/ai";
-import personal from './../data/personal.json'
+import { AiFillGithub, AiOutlineMenu } from "react-icons/ai";
+import personal from "./../data/personal.json";
 const Header: NextPage = () => {
-    const mobileNav = useDisclosure();
+  const mobileNav = useDisclosure();
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
@@ -98,16 +95,15 @@ const Header: NextPage = () => {
         onClick={mobileNav.onClose}
       />
       <Link href={personal.sponsor}>
-      <Button w="full" variant="ghost" leftIcon={<FaHeart />}>
-        Sponsor
-      </Button>
+        <Button w="full" variant="ghost" leftIcon={<FaHeart />}>
+          Sponsor
+        </Button>
       </Link>
       <Link href={personal.github}>
-      <Button w="full" variant="ghost" leftIcon={<AiFillGithub />}>
-        Github
-      </Button>
+        <Button w="full" variant="ghost" leftIcon={<AiFillGithub />}>
+          Github
+        </Button>
       </Link>
-      
     </VStack>
   );
   return (
@@ -127,7 +123,11 @@ const Header: NextPage = () => {
             <Flex align="center">
               <Link href="/">
                 <HStack>
-                <Avatar name='Oğuz Kağan EREN' bg='green.500' src='/photo.jpg' />
+                  <Avatar
+                    name="Oğuz Kağan EREN"
+                    bg="green.500"
+                    src="/photo.jpg"
+                  />
                 </HStack>
               </Link>
             </Flex>
@@ -199,5 +199,5 @@ const Header: NextPage = () => {
       </chakra.header>
     </Box>
   );
-}
-export default Header
+};
+export default Header;
