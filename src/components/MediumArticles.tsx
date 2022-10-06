@@ -16,7 +16,7 @@ const MediumArticles: NextPage = () => {
         const avatar = data.feed.image;
         const profileLink = data.feed.link;
         const res = data.items; //This is an array with the content. No feed, no info about author etc..
-        const posts = res.filter((item) => item.categories.length > 0);
+        const posts = res.filter((item: { categories: string | any[]; }) => item.categories.length > 0);
         setAvatar(avatar);
         setProfileLink(profileLink);
         setArticles(posts);
