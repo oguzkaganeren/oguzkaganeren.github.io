@@ -5,7 +5,7 @@ import { Box, Flex, Image, Link, chakra } from "@chakra-ui/react";
 const MediumArticles: NextPage = () => {
   const [avatar, setAvatar] = useState();
   const [profileLink, setProfileLink] = useState();
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<any[]>([]);
   const mediumURL =
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@oguzkaganeren";
   useEffect(() => {
@@ -16,7 +16,13 @@ const MediumArticles: NextPage = () => {
         const avatar = data.feed.image;
         const profileLink = data.feed.link;
         const res = data.items; //This is an array with the content. No feed, no info about author etc..
-        const posts = res.filter((item: { categories: string | any[]; }) => item.categories.length > 0);
+        const posts = res.filter(
+          (item: {
+            categories: string | any[];
+            title: string;
+            content: string;
+          }) => item.categories.length > 0
+        );
         setAvatar(avatar);
         setProfileLink(profileLink);
         setArticles(posts);
