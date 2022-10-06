@@ -17,6 +17,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import MediumArticles from "./MediumArticles";
 const Intro: NextPage = () => {
   return (
     <Flex
@@ -231,7 +232,9 @@ const Intro: NextPage = () => {
             flexGrow={1}
             spacing={5}
             alignItems="start"
-          ></VStack>
+          >
+            <MediumArticles />
+          </VStack>
         </SimpleGrid>
       </Box>
     </Flex>
