@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import React from "react";
-import { chakra, Flex, Icon } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
@@ -32,12 +31,19 @@ const LeetcodeStatus: NextPage = () => {
       response.data.data;
     });
   });
-  if (isLoading) return (<pre>Loading...</pre>);
+  if (isLoading) return <pre>Loading...</pre>;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   if (error) return <pre>{error.message}</pre>;
 
   return (
     <div>
-     Leetcode submission count: {data!.matchedUser.submitStats.acSubmissionNum[0].count}
+      Leetcode submission count:{" "}
+      {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        data!.matchedUser.submitStats.acSubmissionNum[0].count
+      }
     </div>
   );
 };
