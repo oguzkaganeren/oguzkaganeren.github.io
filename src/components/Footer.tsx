@@ -3,10 +3,8 @@ import React from "react";
 import { chakra, Flex, Icon } from "@chakra-ui/react";
 import { BsGithub, BsLinkedin, BsMedium } from "react-icons/bs";
 import personal from "./../data/personal.json";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import LeetcodeStatus from "./LeetcodeStatus";
 
-const queryClient = new QueryClient();
 const Footer: NextPage = () => {
   return (
     <Flex
@@ -28,7 +26,7 @@ const Footer: NextPage = () => {
       }}
     >
       <chakra.a
-        href="#"
+        href="https://leetcode.com/oguzkaganeren/"
         fontSize="xl"
         fontWeight="bold"
         color="gray.600"
@@ -42,9 +40,7 @@ const Footer: NextPage = () => {
           color: "gray.700",
         }}
       >
-        <QueryClientProvider client={queryClient}>
-          <LeetcodeStatus/>
-        </QueryClientProvider>
+        <LeetcodeStatus/>
       </chakra.a>
 
       <chakra.p

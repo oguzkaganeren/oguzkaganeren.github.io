@@ -1,49 +1,27 @@
 import type { NextPage } from "next";
 import React from "react";
-import { useQuery } from "react-query";
 import axios from "axios";
 
-const endpoint = "https://leetcode.com/graphql";
-const STATUS_QUERY = `
-  {
-    matchedUser(username: "oguzkaganeren") {
-        username
-        submitStats: submitStatsGlobal {
-          acSubmissionNum {
-            difficulty
-            count
-            submissions
-          }
-        }
-      }
-  }
-`;
-const LeetcodeStatus: NextPage = () => {
-  const { data, isLoading, error } = useQuery("matchedUser", () => {
-    return axios({
-      url: endpoint,
-      method: "POST",
-      data: {
-        query: STATUS_QUERY,
-      },
-    }).then((response) => {
-      console.log(response);
-      response.data.data;
-    });
-  });
-  if (isLoading) return <pre>Loading...</pre>;
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (error) return <pre>{error.message}</pre>;
+const endpoint = "https://leetcode-stats-api.herokuapp.com/oguzkaganeren";
 
+const LeetcodeStatus: NextPage = () => {
+    const [data, setData] = React.useState(null);
+
+    React.useEffect(() => {
+      axios.get(endpoint).then((response) => {
+        setData(response.data);
+      });
+    }, []);
+  
+    if (!data) return null;
   return (
     <div>
-      Leetcode submission count:{" "}
+      Leetcode {" "}
       {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        data!.matchedUser.submitStats.acSubmissionNum[0].count
-      }
+        data!.totalSolved
+      } solved
     </div>
   );
 };
