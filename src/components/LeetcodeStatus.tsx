@@ -32,12 +32,12 @@ const LeetcodeStatus: NextPage = () => {
       response.data.data;
     });
   });
-  if (isLoading) return "Loading...";
+  if (isLoading) return (<pre>Loading...</pre>);
   if (error) return <pre>{error.message}</pre>;
 
   return (
     <div>
-     Leetcode submission count: {data.matchedUser.submitStats.acSubmissionNum[0].count}
+     Leetcode submission count: {data!.matchedUser.submitStats.acSubmissionNum[0].count}
     </div>
   );
 };
