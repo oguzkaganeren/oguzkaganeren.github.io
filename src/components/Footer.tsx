@@ -3,6 +3,10 @@ import React from "react";
 import { chakra, Flex, Icon } from "@chakra-ui/react";
 import { BsGithub, BsLinkedin, BsMedium } from "react-icons/bs";
 import personal from "./../data/personal.json";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import LeetcodeStatus from "./LeetcodeStatus";
+
+const queryClient = new QueryClient();
 const Footer: NextPage = () => {
   return (
     <Flex
@@ -38,7 +42,9 @@ const Footer: NextPage = () => {
           color: "gray.700",
         }}
       >
-        Oğuz Kağan EREN
+        <QueryClientProvider client={queryClient}>
+          <LeetcodeStatus/>
+        </QueryClientProvider>
       </chakra.a>
 
       <chakra.p
