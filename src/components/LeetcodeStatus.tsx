@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import React from "react";
 import axios from "axios";
+import { Spinner } from "@chakra-ui/react";
 
 const endpoint = "https://leetcode-stats-api.herokuapp.com/oguzkaganeren";
 
@@ -13,16 +14,16 @@ const LeetcodeStatus: NextPage = () => {
       });
     }, []);
   
-    if (!data) return null;
+    if (!data) return <Spinner />;
   return (
-    <div>
+    <>
       Leetcode {" "}
       {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         data!.totalSolved
       } solved
-    </div>
+    </>
   );
 };
 export default LeetcodeStatus;
