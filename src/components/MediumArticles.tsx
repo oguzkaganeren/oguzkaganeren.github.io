@@ -31,17 +31,6 @@ const MediumArticles: NextPage = () => {
     );
   return (
     <VStack>
-      <chakra.h3
-        color="gray.800"
-        _dark={{
-          color: "white",
-        }}
-        fontWeight="bold"
-        fontSize="2xl"
-        textTransform="uppercase"
-      >
-        My Medium Articles
-      </chakra.h3>
       {articles.map((row, i) => (
         <Box
           mx="auto"
@@ -53,7 +42,7 @@ const MediumArticles: NextPage = () => {
           _dark={{
             bg: "gray.800",
           }}
-          maxW="2xl"
+          maxW="xl"
         >
           <Flex justifyContent="space-between" alignItems="center">
             <chakra.span
@@ -96,6 +85,7 @@ const MediumArticles: NextPage = () => {
                 },
                 textDecor: "underline",
               }}
+              href={row.link}
             >
               {row.title}
             </Link>

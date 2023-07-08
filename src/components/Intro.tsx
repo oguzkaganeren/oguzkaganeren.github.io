@@ -38,7 +38,7 @@ const Intro: NextPage = () => {
           bg: "gray.800",
         }}
         px={8}
-        py={20}
+        py={5}
         mx="auto"
       >
         <SimpleGrid
