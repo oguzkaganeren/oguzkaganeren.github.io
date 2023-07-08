@@ -11,20 +11,17 @@ import {
   Link,
   VStack,
   chakra,
-  useColorMode,
   useColorModeValue,
   useDisclosure,
   Avatar,
 } from "@chakra-ui/react";
 import { useViewportScroll } from "framer-motion";
-import { FaHeart, FaMoon, FaSun } from "react-icons/fa";
-import { AiFillGithub, AiOutlineMenu } from "react-icons/ai";
+import { FaHeart, } from "react-icons/fa";
+import {  AiOutlineMenu } from "react-icons/ai";
 import personal from "./../data/personal.json";
+import { BsGithub, BsLinkedin, BsMedium } from "react-icons/bs";
 const Header: NextPage = () => {
   const mobileNav = useDisclosure();
-  const { toggleColorMode: toggleMode } = useColorMode();
-  const text = useColorModeValue("dark", "light");
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const bg = useColorModeValue("white", "gray.800");
   const ref = React.useRef(null);
   const [y, setY] = React.useState(0);
@@ -99,11 +96,62 @@ const Header: NextPage = () => {
           Sponsor
         </Button>
       </Link>
-      <Link href={personal.github}>
-        <Button w="full" variant="ghost" leftIcon={<AiFillGithub />}>
-          Github
-        </Button>
-      </Link>
+      <Flex mx="-2">
+        <chakra.a
+          target={"_blank"}
+          href={personal.github}
+          mx="2"
+          color="gray.600"
+          _dark={{
+            color: "gray.300",
+            _hover: {
+              color: "gray.400",
+            },
+          }}
+          _hover={{
+            color: "gray.500",
+          }}
+          aria-label="Github"
+        >
+          <Icon as={BsGithub} mt={1} />
+        </chakra.a>
+        <chakra.a
+          target={"_blank"}
+          href={personal.linkedin}
+          mx="2"
+          color="gray.600"
+          _dark={{
+            color: "gray.300",
+            _hover: {
+              color: "gray.400",
+            },
+          }}
+          _hover={{
+            color: "gray.500",
+          }}
+          aria-label="Linkedin"
+        >
+          <Icon as={BsLinkedin} mt={1} />
+        </chakra.a>
+        <chakra.a
+          target={"_blank"}
+          href={personal.medium}
+          mx="2"
+          color="gray.600"
+          _dark={{
+            color: "gray.300",
+            _hover: {
+              color: "gray.400",
+            },
+          }}
+          _hover={{
+            color: "gray.500",
+          }}
+          aria-label="Medium"
+        >
+          <Icon as={BsMedium} mt={1} />
+        </chakra.a>
+      </Flex>
     </VStack>
   );
   return (
@@ -130,7 +178,6 @@ const Header: NextPage = () => {
                   />
                 </HStack>
               </Link>
-              
             </Flex>
 
             <Flex
@@ -140,43 +187,63 @@ const Header: NextPage = () => {
               align="center"
               color="gray.400"
             >
-              <HStack
-                spacing="5"
-                display={{
-                  base: "none",
-                  md: "flex",
-                }}
-              >
-                <Link
-                  isExternal
-                  aria-label="Go to My GitHub page"
+              <Flex mx="-2">
+                <chakra.a
+                  target={"_blank"}
                   href={personal.github}
+                  mx="2"
+                  color="gray.600"
+                  _dark={{
+                    color: "gray.300",
+                    _hover: {
+                      color: "gray.400",
+                    },
+                  }}
+                  _hover={{
+                    color: "gray.500",
+                  }}
+                  aria-label="Github"
                 >
-                  <Icon
-                    as={AiFillGithub}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{
-                      color: "gray.600",
-                    }}
-                  />
-                </Link>
-              </HStack>
-              <IconButton
-                size="md"
-                fontSize="lg"
-                aria-label={`Switch to ${text} mode`}
-                variant="ghost"
-                color="current"
-                ml={{
-                  base: "0",
-                  md: "3",
-                }}
-                onClick={toggleMode}
-                icon={<SwitchIcon />}
-              />
+                  <Icon as={BsGithub} mt={1} />
+                </chakra.a>
+                <chakra.a
+                  target={"_blank"}
+                  href={personal.linkedin}
+                  mx="2"
+                  color="gray.600"
+                  _dark={{
+                    color: "gray.300",
+                    _hover: {
+                      color: "gray.400",
+                    },
+                  }}
+                  _hover={{
+                    color: "gray.500",
+                  }}
+                  aria-label="Linkedin"
+                >
+                  <Icon as={BsLinkedin} mt={1} />
+                </chakra.a>
+                <chakra.a
+                  target={"_blank"}
+                  href={personal.medium}
+                  mx="2"
+                  color="gray.600"
+                  _dark={{
+                    color: "gray.300",
+                    _hover: {
+                      color: "gray.400",
+                    },
+                  }}
+                  _hover={{
+                    color: "gray.500",
+                  }}
+                  aria-label="Medium"
+                >
+                  <Icon as={BsMedium} mt={1} />
+                </chakra.a>
+              </Flex>
+
               {SponsorButton}
               <IconButton
                 display={{

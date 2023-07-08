@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import MediumArticles from "./MediumArticles";
+import LeetcodeStatus from "./LeetcodeStatus";
 const Intro: NextPage = () => {
   return (
     <Flex
@@ -32,7 +33,6 @@ const Intro: NextPage = () => {
       alignItems="center"
     >
       <Box
-        shadow="xl"
         bg="white"
         _dark={{
           bg: "gray.800",
@@ -183,7 +183,7 @@ const Intro: NextPage = () => {
             >
               Project I am actively working on
             </chakra.h3>
-            <HStack>
+            <HStack mb={3}>
               <LinkBox
                 as="article"
                 maxW="sm"
@@ -226,6 +226,23 @@ const Intro: NextPage = () => {
                 <Text>A application providing get to news about manjaro.</Text>
               </LinkBox>
             </HStack>
+            <chakra.a
+              href="https://leetcode.com/oguzkaganeren/"
+              fontSize="xl"
+              fontWeight="bold"
+              color="gray.600"
+              _dark={{
+                color: "white",
+                _hover: {
+                  color: "gray.300",
+                },
+              }}
+              _hover={{
+                color: "gray.700",
+              }}
+            >
+              <LeetcodeStatus />
+            </chakra.a>
           </Box>
           <VStack
             direction="column"

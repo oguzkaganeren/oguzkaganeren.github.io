@@ -1,11 +1,18 @@
 import type { NextPage } from "next";
 import React from "react";
-import { chakra, Flex, Icon } from "@chakra-ui/react";
-import { BsGithub, BsLinkedin, BsMedium } from "react-icons/bs";
-import personal from "./../data/personal.json";
-import LeetcodeStatus from "./LeetcodeStatus";
+import {
+  chakra,
+  Flex,
+  useColorMode,
+  useColorModeValue,
+  IconButton,
+} from "@chakra-ui/react";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Footer: NextPage = () => {
+    const { toggleColorMode: toggleMode } = useColorMode();
+    const text = useColorModeValue("dark", "light");
+    const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   return (
     <Flex
       w="full"
@@ -25,24 +32,6 @@ const Footer: NextPage = () => {
         bg: "gray.800",
       }}
     >
-      <chakra.a
-        href="https://leetcode.com/oguzkaganeren/"
-        fontSize="xl"
-        fontWeight="bold"
-        color="gray.600"
-        _dark={{
-          color: "white",
-          _hover: {
-            color: "gray.300",
-          },
-        }}
-        _hover={{
-          color: "gray.700",
-        }}
-      >
-        <LeetcodeStatus/>
-      </chakra.a>
-
       <chakra.p
         py={{
           base: "2",
@@ -55,63 +44,19 @@ const Footer: NextPage = () => {
       >
         All rights reserved
       </chakra.p>
-
-      <Flex mx="-2">
-        <chakra.a
-          target={"_blank"}
-          href={personal.github}
-          mx="2"
-          color="gray.600"
-          _dark={{
-            color: "gray.300",
-            _hover: {
-              color: "gray.400",
-            },
-          }}
-          _hover={{
-            color: "gray.500",
-          }}
-          aria-label="Github"
-        >
-          <Icon as={BsGithub} mt={1} />
-        </chakra.a>
-        <chakra.a
-          target={"_blank"}
-          href={personal.linkedin}
-          mx="2"
-          color="gray.600"
-          _dark={{
-            color: "gray.300",
-            _hover: {
-              color: "gray.400",
-            },
-          }}
-          _hover={{
-            color: "gray.500",
-          }}
-          aria-label="Linkedin"
-        >
-          <Icon as={BsLinkedin} mt={1} />
-        </chakra.a>
-        <chakra.a
-          target={"_blank"}
-          href={personal.medium}
-          mx="2"
-          color="gray.600"
-          _dark={{
-            color: "gray.300",
-            _hover: {
-              color: "gray.400",
-            },
-          }}
-          _hover={{
-            color: "gray.500",
-          }}
-          aria-label="Medium"
-        >
-          <Icon as={BsMedium} mt={1} />
-        </chakra.a>
-      </Flex>
+      <IconButton
+        size="md"
+        fontSize="lg"
+        aria-label={`Switch to ${text} mode`}
+        variant="ghost"
+        color="current"
+        ml={{
+          base: "0",
+          md: "3",
+        }}
+        onClick={toggleMode}
+        icon={<SwitchIcon />}
+      />
     </Flex>
   );
 };
