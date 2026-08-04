@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import MediumArticles from "./MediumArticles";
 import LeetcodeStatus from "./LeetcodeStatus";
+import Experience from "./Experience";
 const Intro: NextPage = () => {
   return (
     <Flex
@@ -91,8 +92,12 @@ const Intro: NextPage = () => {
                 color: "gray.500",
               }}
             >
-              Accomplished and highly-organized full stack developer with a
-              bachelor's level in computer engineering.
+              Full-stack developer with 5+ years of experience building
+              enterprise web and mobile applications with Java, Spring Boot,
+              React, and Angular. Currently building insurance platforms used
+              by carriers like Zurich and Cardif at Agito, with prior
+              experience on Huawei's Petal Maps backend team. Active
+              open-source contributor in the Linux/Manjaro community.
             </chakra.p>
             <chakra.h3
               mb={3}
@@ -164,6 +169,9 @@ const Intro: NextPage = () => {
                 </Link>
               </WrapItem>
             </Wrap>
+            <Box mb={6}>
+              <Experience />
+            </Box>
             <chakra.h3
               mb={3}
               fontSize={{
@@ -194,6 +202,7 @@ const Intro: NextPage = () => {
                 <Wrap>
                   <Tag>react</Tag>
                   <Tag>tauri</Tag>
+                  <Tag>rust</Tag>
                 </Wrap>
 
                 <Heading size="md" my="2">
@@ -202,28 +211,9 @@ const Intro: NextPage = () => {
                   </LinkOverlay>
                 </Heading>
                 <Text>
-                  A tool providing access to documentation and support for new
-                  Manjaro users.
+                  Desktop onboarding app for new Manjaro users, built with
+                  React and Rust on Tauri. 117 stars and 8 forks on GitHub.
                 </Text>
-              </LinkBox>
-
-              <LinkBox
-                as="article"
-                maxW="sm"
-                p="5"
-                borderWidth="1px"
-                rounded="md"
-              >
-                <Wrap>
-                  <Tag>react-native</Tag>
-                </Wrap>
-
-                <Heading size="md" my="2">
-                  <LinkOverlay href="https://play.google.com/store/apps/details?id=com.manjaro.manjarohome">
-                    Manjaro News
-                  </LinkOverlay>
-                </Heading>
-                <Text>A application providing get to news about manjaro.</Text>
               </LinkBox>
             </HStack>
             <chakra.a

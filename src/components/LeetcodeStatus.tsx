@@ -3,26 +3,36 @@ import React from "react";
 import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
 
-const endpoint = "https://leetcode-stats-api.herokuapp.com/oguzkaganeren";
+const endpoint = "https://leetcode-api-faisalshohag.vercel.app/oguzkaganeren";
+
+type LeetcodeData = {
+  totalSolved: number;
+};
 
 const LeetcodeStatus: NextPage = () => {
-    const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState<LeetcodeData | null>(null);
+  const [failed, setFailed] = React.useState(false);
 
-    React.useEffect(() => {
-      axios.get(endpoint).then((response) => {
-        setData(response.data);
+  React.useEffect(() => {
+    axios
+      .get(endpoint, { timeout: 8000 })
+      .then((response) => {
+        if (typeof response.data?.totalSolved === "number") {
+          setData(response.data);
+        } else {
+          setFailed(true);
+        }
+      })
+      .catch(() => {
+        setFailed(true);
       });
-    }, []);
-  
-    if (!data) return <Spinner />;
+  }, []);
+
+  if (failed) return <>Leetcode profile</>;
+  if (!data) return <Spinner size="sm" />;
   return (
     <>
-      Leetcode {" "}
-      {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        data!.totalSolved
-      } solved
+      Leetcode {data.totalSolved} solved
     </>
   );
 };
