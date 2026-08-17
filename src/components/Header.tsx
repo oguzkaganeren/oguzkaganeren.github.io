@@ -16,7 +16,7 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { useViewportScroll } from "framer-motion";
-import { FaHeart, } from "react-icons/fa";
+import { FaHeart, FaFilePdf } from "react-icons/fa";
 import {  AiOutlineMenu } from "react-icons/ai";
 import personal from "./../data/personal.json";
 import { BsGithub, BsLinkedin, BsMedium } from "react-icons/bs";
@@ -30,6 +30,46 @@ const Header: NextPage = () => {
   React.useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);
+  const CvButton = (
+    <Box
+      display={{
+        base: "none",
+        md: "flex",
+      }}
+      alignItems="center"
+      as="a"
+      aria-label="Download CV"
+      href="/Oguz_Kagan_Eren_CV.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      bg="gray.50"
+      borderWidth="1px"
+      borderColor="gray.200"
+      px="1em"
+      minH="36px"
+      rounded="md"
+      fontSize="sm"
+      color="gray.800"
+      outline="0"
+      transition="all 0.3s"
+      _hover={{
+        bg: "gray.100",
+        borderColor: "gray.300",
+      }}
+      _active={{
+        borderColor: "gray.200",
+      }}
+      _focus={{
+        boxShadow: "outline",
+      }}
+      ml={5}
+    >
+      <Icon as={FaFilePdf} w="4" h="4" color="red.500" mr="2" />
+      <Box as="strong" lineHeight="inherit" fontWeight="semibold">
+        Download CV
+      </Box>
+    </Box>
+  );
   const SponsorButton = (
     <Box
       display={{
@@ -94,6 +134,11 @@ const Header: NextPage = () => {
       <Link href={personal.sponsor}>
         <Button w="full" variant="ghost" leftIcon={<FaHeart />}>
           Sponsor
+        </Button>
+      </Link>
+      <Link href="/Oguz_Kagan_Eren_CV.pdf" isExternal>
+        <Button w="full" variant="ghost" leftIcon={<FaFilePdf />}>
+          Download CV
         </Button>
       </Link>
       <Flex mx="-2">
@@ -244,6 +289,7 @@ const Header: NextPage = () => {
                 </chakra.a>
               </Flex>
 
+              {CvButton}
               {SponsorButton}
               <IconButton
                 display={{
